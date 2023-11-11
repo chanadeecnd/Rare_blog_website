@@ -27,11 +27,42 @@ function progress() {
     document.getElementById("myBar").style.width = scrolled + "%";
 }
 
+// const email = document.querySelector('.email-signin')
+// console.log(email.childNodes[1])
+// email.addEventListener('mouseover',(e)=>{
+//     email.childNodes[1].style.color = "white"
+// })
+
 window.onscroll = () => {
     scroll()
     progress()
 }
+
+let eyeicon = document.querySelector('#eyeicon')
+let password = document.querySelector('#password')
+let con_eyeicon = document.querySelector('#con-eyeicon')
+let con_password = document.querySelector('#con-password')
+
+eyeicon.addEventListener('click',()=>{
+    if(password.type == 'password'){
+        password.type = 'text';
+        eyeicon.innerHTML = '<i class="fa-solid fa-eye-slash" style="color: #df2020;"></i>'
+    }else{
+        password.type = 'password';
+        eyeicon.innerHTML = '<i class="fa-solid fa-eye" style="color: #1a212e;"></i>'
+
+    }
+})
+con_eyeicon.addEventListener('click',()=>{
+    if(con_password.type == 'password'){
+        con_password.type = 'text';
+        con_eyeicon.innerHTML = '<i class="fa-solid fa-eye-slash" style="color: #df2020;"></i>';
+    }else{
+        con_password.type = 'password';
+        con_eyeicon.innerHTML = '<i class="fa-solid fa-eye" style="color: #1a212e;"></i>'
+    }
+})
 // console.log(header)
-console.log(bttHeader)
+// console.log(bttHeader)
 
 

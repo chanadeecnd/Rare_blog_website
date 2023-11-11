@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/',(req,res)=>{
     console.log(req.user)
     if(req.isAuthenticated()){
-        return res.render('index');
+        return res.render('home');
     }
     return res.render('index');
 });
@@ -35,6 +35,7 @@ router.post('/login',(req,res)=>{
         username:username,
         password:password
     })
+    console.log(user)
     req.logIn(user,(err)=>{
         if(err){
             console.log(err)
@@ -51,18 +52,22 @@ router.post('/login',(req,res)=>{
 
 //register
 router.post('/register',(req,res)=>{
-    const {username, password, first_name, last_name} = req.body;
+    const {username, password, confirm_password} = req.body;
     console.log(req.body)
-    User.register({username:username,first_name:first_name,last_name:last_name},
-        password,(err,user)=>{
-            if(err){
-                console.log(err)
-                return res.json({message:'Register Fails'})
-            }
-            passport.authenticate('local')(req,res,()=>{
-                res.json({message:'Register success',user:user})
+    if(password === confirm_password){
+        User.register({username:username},
+            password,(err,user)=>{
+                if(err){
+                    console.log(err)
+                    return res.json({message:'Register Fails'})
+                }
+                passport.authenticate('local')(req,res,()=>{
+                    res.redirect('/user/')
+                })
             })
-        })
+    }else{
+        res.status(404).redirect('/')
+    }
 })
 
 //logout

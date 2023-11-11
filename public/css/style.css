@@ -266,6 +266,54 @@ nav{
     color: white;
 }
 
+.m-header{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 5px;
+}
+
+.btn-signup{
+    
+
+}
+
+.h-user a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #01a85a;
+    transition: all .2s ease-in;
+}
+.h-user a:hover{
+    color: #0c643c;
+}
+
+.f-header{
+    font-family: var(--font-header);
+}
+
+.email-signin:hover img{
+    color: #fff;
+}
+
+.form-signup>div{
+    position: relative;
+}
+
+.form-input{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #868585;
+}
+
+.showPassword{
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    border: none;
+}
+
+/* homepage */
 
 
 

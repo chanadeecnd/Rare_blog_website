@@ -17,6 +17,9 @@ router.get('/blog',(req,res)=>{
 })
 
 //create blog
+router.get('/write',(req,res)=>{
+    res.render('write')
+})
 
 //delete blog
 

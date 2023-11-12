@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New story</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="d-flex justify-content-center align-items-center" style=" height: 55px;">
+        <div class="write-navbar w-75 h-100 px-4 pt-2 d-flex justify-content-between">
+            <div class="write-head-left d-flex align-items-center">
+                <img src="/image/logo-removebg-preview.png" alt="" height="47px">
+                <p class="text-body-sencondary fs-6 h-100">New your story</p>
+            </div>
+            <div class="write-head-rigth d-flex align-items-center">
+                <div id="post-btn" class="d-flex align-items-center justify-content-center">
+                    <a href="#">Post</a>
+                </div>
+                <div id="cancel-btn" class="d-flex align-items-center justify-content-center">
+                    <a href="#">Cancel</a>
+                </div>
+                <a class="dropdown d-flex align-items-center hidden-arrow" type="button
+                        id=" navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
+                        alt="Black and White Portrait of a Man" loading="lazy" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                    <li>
+                        <a class="dropdown-item" href="#"><i class="fa-regular fa-user" style="color: #51555c;"></i>
+                            Profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#"><i class="fa-regular fa-bookmark" style="color: #51555c;"></i>
+                            Library</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item dropdown-selected" href="#"><i class="fa-regular fa-clipboard"></i> Stories</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <h6>sign out</h6>
+                            <p>admin@admin.com</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container w-50 mt-5">
+        <form action="">
+            <div class="write-title" style="position: relative;">
+                <textarea class="write-title" name="" id="title" cols="30" rows="1" placeholder="Title"></textarea>
+                <div class="text-center" style="position: absolute; left: -40px; top: 8px;">
+                    <input type="file" id="fileInput">
+                    <label for="fileInput" class=""><i class="input-image fa-regular fa-images fa-xl"></i></label>
+                </div>   
+            </div>
+            <div class="write-title box-title">
+                <textarea class="write-title mt-3 " name="" id="content" cols="30" rows="1" placeholder="tell your story..."></textarea>
+                
+            </div>
+        </form>
+        
+    </div>
+
+    <script src="https://kit.fontawesome.com/4b826e6716.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="/js/write.js"></script>
+</body>
+
+</html>

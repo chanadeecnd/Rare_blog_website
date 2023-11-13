@@ -8,4 +8,16 @@ function dateFormat(){
     return formatDate
 }
 
-module.exports = dateFormat;
+function generateKey() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let key = '';
+
+  for (let i = 0; i < 15; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      key += characters.charAt(randomIndex);
+  }
+  const genKey = key;
+  return genKey;
+}
+
+module.exports = {dateFormat,generateKey};

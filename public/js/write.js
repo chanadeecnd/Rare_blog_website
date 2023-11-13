@@ -1,5 +1,5 @@
-const submit = document.getElementById('submit')
-const form = document.getElementById('form-blog')
+const submit = document.getElementById('submit');
+const form = document.getElementById('form-blog');
 submit.addEventListener('click',(e)=>{
     e.preventDefault();
     form.submit();
@@ -7,6 +7,28 @@ submit.addEventListener('click',(e)=>{
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
 })
+
+function displayImage(){
+    console.log('function displayImage active.')
+    const input = document.getElementById('fileInput');
+    const img = document.getElementById('uploadedImage');
+
+    const file = input.files[0];
+    console.log(file)
+    if (!file) {
+        alert('Please select an image.');
+    return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        img.src = e.target.result;
+        img.style.display = 'block';
+    };
+
+    reader.readAsDataURL(file);
+}
+
 
 
 

@@ -55,11 +55,12 @@
         </div>
     </nav>
     <div class="container w-50 mt-5">
-        <form action="/write" method="post" id="form-blog">
+        <form action="/write" method="post" id="form-blog" enctype="multipart/form-data">
             <div class="write-title" style="position: relative;">
                 <textarea class="write-title" name="title" id="title" cols="30" rows="1" placeholder="Title"></textarea>
+                <img id="uploadedImage" style="display: none;">
                 <div class="text-center" style="position: absolute; left: -40px; top: 8px;">
-                    <input type="file" id="fileInput">
+                    <input type="file" id="fileInput" name="image" onchange="displayImage()">
                     <label for="fileInput" class=""><i class="input-image fa-regular fa-images fa-xl"></i></label>
                 </div>   
             </div>

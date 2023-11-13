@@ -3,15 +3,14 @@ const User = require('./user');
 
 const blogSchema = new mongoose.Schema({
     userId:{
-        type:mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
     title:String,
     content:String,
     image:String,
     date:{
-        type:Date,
-        default:Date.now
+        type:String,
     }
 });
 

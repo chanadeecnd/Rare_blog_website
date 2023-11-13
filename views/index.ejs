@@ -70,7 +70,11 @@
                 </div>
                 <div class="modal-body d-flex flex-column align-items-center w-100">
                     <h1 class="mb-3 f-header">Sign up with email</h1>
-                    <form action="/user/register" method="post" class="form-signup">
+                    <form action="/user/register" method="post" class="form-signup w-75">
+                        <div class="mb-4 w-100 d-flex justify-content-between">
+                            <input type="text" name="firstName" class="form-input" style="width: 47.5%;" placeholder="First name">
+                            <input type="text" name="lastName" class="form-input" style="width: 47.5%;" placeholder="Last name">
+                        </div>
                         <div class="mb-4 w-100">
                             <input type="email" class="form-input" name="username" id="" placeholder="Email address">
                         </div>
@@ -79,7 +83,7 @@
                             <button class="showPassword" id="eyeicon" type="button"><i class="fa-solid fa-eye" style="color: #1a212e;"></i></button>
                         </div>
                         <div class=" mb-4 w-100">
-                            <input type="password" class="form-input" name="confirm_password" id="con-password" placeholder="Confirm password">
+                            <input type="password" class="form-input" name="confirmPassword" id="con-password" placeholder="Confirm password">
                             <button class="showPassword" id="con-eyeicon" type="button"><i class="fa-solid fa-eye" style="color: #1a212e;"></i></button>
                         </div>
                         <button type="submit" class="btn btn-outline-dark d-flex justify-content-center align-items-center w-100 mb-2 get-start "
@@ -208,7 +212,32 @@
                     <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
                         class="img-content" alt="json">
                 </div>
+                <%if(locals.data){%>
+                    <%data.forEach(data=>{%>
+                        <div class="blog-left">
+                            <div class="blog">
+                                <div class="blog-author">
+                                    <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
+                                    <a href="#" class="author-name"><%=data.userId.firstName%> <%=data.userId.lastName%></a>
+                                    <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
+                                    <span> <%=data.date%></span>
+                                </div>
+                                <a href="#" style="color: #333;">
+                                    <h1 class="blog-title"><%=data.title%></h1>
+                                    <p class="box-content"><%=data.content%></p>
+                                </a>
+                                <div class="box-footer">
+                                    <a href="#">Catgory</a>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                            </div>
+                            <img src="/uploads/<%=data.image%>"
+                                class="img-content" alt="json">
+                        </div>
+                    <%})%>
+                    <%}else{%>
 
+                        <%}%>
                 <div class="blog-left">
                     <div class="blog">
                         <div class="blog-author">

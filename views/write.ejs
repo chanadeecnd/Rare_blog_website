@@ -19,10 +19,10 @@
             </div>
             <div class="write-head-rigth d-flex align-items-center">
                 <div id="post-btn" class="d-flex align-items-center justify-content-center">
-                    <a href="#">Post</a>
+                    <a id="submit" href="#">Post</a>
                 </div>
                 <div id="cancel-btn" class="d-flex align-items-center justify-content-center">
-                    <a href="#">Cancel</a>
+                    <a href="/" onclick="return confirm('Are you sure to leave this page ?')">Cancel</a>
                 </div>
                 <a class="dropdown d-flex align-items-center hidden-arrow" type="button
                         id=" navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,16 +55,16 @@
         </div>
     </nav>
     <div class="container w-50 mt-5">
-        <form action="">
+        <form action="/write" method="post" id="form-blog">
             <div class="write-title" style="position: relative;">
-                <textarea class="write-title" name="" id="title" cols="30" rows="1" placeholder="Title"></textarea>
+                <textarea class="write-title" name="title" id="title" cols="30" rows="1" placeholder="Title"></textarea>
                 <div class="text-center" style="position: absolute; left: -40px; top: 8px;">
                     <input type="file" id="fileInput">
                     <label for="fileInput" class=""><i class="input-image fa-regular fa-images fa-xl"></i></label>
                 </div>   
             </div>
             <div class="write-title box-title">
-                <textarea class="write-title mt-3 " name="" id="content" cols="30" rows="1" placeholder="tell your story..."></textarea>
+                <textarea class="write-title mt-3 " name="content" id="content" cols="30" rows="1" placeholder="tell your story..."></textarea>
                 
             </div>
         </form>

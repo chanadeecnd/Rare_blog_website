@@ -1,20 +1,23 @@
 const mongoose = require('mongoose');
 const User = require('./user');
+const Blog = require('./blog');
 
-const blogSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
     userId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-    title:String,
+    blogId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Blog'
+    },
     content:String,
-    image:String,
     date:{
         type:Date,
         default:Date.now
     }
 });
 
-const Blog = mongoose.model('Blog',blogSchema);
+const Comment = mongoose.model('Comment',commentSchema);
 
-module.exports = Blog;
+module.exports = Comment;

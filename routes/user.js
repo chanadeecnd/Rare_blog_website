@@ -2,14 +2,18 @@ const express = require('express');
 const User = require('../model/user');
 const passport = require('passport');
 const router = express.Router();
+const dateFormat = require('../public/js/date.js')
 
 //CRU*
 
 router.get('/',(req,res)=>{
+    // console.log(req)
     console.log(req.user)
     if(req.isAuthenticated()){
+        console.log('User active')
         return res.render('home');
     }
+    console.log('No User')
     return res.render('index');
 });
 
@@ -52,21 +56,30 @@ router.post('/login',(req,res)=>{
 
 //register
 router.post('/register',(req,res)=>{
-    const {username, password, confirm_password} = req.body;
+    const {username, password, confirmPassword, firstName, lastName} = req.body;
     console.log(req.body)
-    if(password === confirm_password){
-        User.register({username:username},
+    if(password == confirmPassword){
+        User.register({
+            username:username,
+            firstName:firstName,
+            lastName:lastName,
+            date:dateFormat()
+        },
             password,(err,user)=>{
+                console.log(user)
                 if(err){
                     console.log(err)
                     return res.json({message:'Register Fails'})
                 }
-                passport.authenticate('local')(req,res,()=>{
-                    res.redirect('/user/')
+                passport.authenticate('local',{
+                    failureRedirect:'/user/',
+                    successRedirect:'/user/',
+                })(req,res,()=>{
+                    console.log('Register successfully.')
                 })
             })
     }else{
-        res.status(404).redirect('/')
+        res.status(404).redirect('/user/')
     }
 })
 

@@ -224,6 +224,76 @@ cursor: pointer;
     margin-right: auto;
     width: 50%;
 }
+.profile-image{
+    position: relative;
+}
+.profile-image>input[type='file']{
+    display: none;
+    width: 250px;
+    height: 250px;
+}
+.profile-image>label>img{
+    width: 250px;
+    height: 250px;
+    transition: all .3s ease;
+}
+.profile-image img:hover,.profile-image img:focus{
+    
+}
+
+.btn-submit{
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    padding: 2px 12px;
+    background-color: #0da302;
+    transition: all .2s ease;
+}
+
+.btn-submit:hover{
+    background-color: #087a00;
+}
+
+.btn-back{
+    border-radius: 15px;
+    color: #fff;
+    padding: 4px 18px;
+    background-color: #4e4e4e;
+    transition: all .2s ease;
+}
+
+.btn-back:hover{
+    background-color: #333;
+}
+
+hr{
+    padding: 0;
+    margin-top: 1px;
+}
+.link-profile-container{
+    position: relative;
+}
+.main-link{
+    position: absolute;
+    top:-15px;
+}
+.link-profile{
+    color: rgb(0, 140, 255);
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0;
+    transition: all .2s ease-in;
+}
+
+.link-profile:hover{
+    color: rgb(194, 0, 0);
+}
+/* .profile-image>label div:hover,.profile-image>label div:focus{
+    z-index: 10;
+} */
+
+
 
 
 

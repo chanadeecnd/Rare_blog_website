@@ -1,0 +1,106 @@
+<%-include('./partials/homeHeader')%>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="container d-flex justify-content-center align-items-center mt-5">
+                <form action="/user/profile" method="post" class="form-profile w-100 d-flex-column"  enctype="multipart/form-data">
+                    <div class="profile-image d-flex justify-content-center">
+                        <input type="file" name="image" id="profile-image" onchange="displayImageProfile()">
+                        <label for="profile-image">
+                            <img src="/image/defaultUserIcon2.jpg" class="rounded-pill" alt="" id="avatar">
+                        </label>
+                    </div>
+                    <div class="mt-4">
+                        <label class="form-label">Name</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control w-50" name="firstName" id="" placeholder="First name" value="John">
+                            <input type="text" class="form-control w-50 ms-1" name="lastName" id="" placeholder="Last name" value="Dev">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email" id="" placeholder="Email" value="john@gmail.com">
+                    </div>
+                    <div class="button mt-3 w-100">
+                        <button type="submit" class="btn-submit w-40">Update</button>
+                        <a href="/user/" class="btn-back w-40 ms-1">Back</a>
+                    </div>
+                    
+                    
+                </form>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <div class="w-100 mt-5">
+                <h2 class="your-stories">Your stories</h2>
+                <hr>
+                <div class="d-flex justify-content-center mt-4">
+                    <div class="d-flex-column">
+                        <div class="blog-header d-flex align-items-center">
+                            <a href="#"><img src="/image/photoMe-color.png" class="rounded-pill" width="40px" alt="chanadee"></a>
+                            <a href="#" class="author-name text-bold fw-bold">Chanadee Hlaoken</a>
+                            <i class="fa-solid fa-circle fa-xs mt-1" style="color: #d4d6d9; font-size: 6px;"></i>
+                            <span> November 4,2023</span>
+                        </div>
+                        <a href="#">
+                        <h1 class="blog-title fs-5 mt-1">JSON is incredibly slow:Here's What's Faster!</h1>
+                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
+                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
+                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
+                            saepe
+                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
+                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
+                            possimus
+                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
+                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
+                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
+                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
+                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
+                            cum
+                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
+                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
+                            Incidunt
+                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
+                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
+                            maiores
+                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
+                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
+                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
+                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
+                            Illo
+                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
+                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
+                            repellat
+                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
+                            ratione
+                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
+                            consectetur
+                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
+                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
+                            fugiat
+                            architecto quasi et iste non!</p>
+                        </a>
+                            <div class="link-profile-container d-flex justify-content-between align-items-start">
+                                <div class="main-link">
+                                    <a href="" class="link-profile">Edit</a>
+                                    <a href="" class="link-profile">Delete</a>
+                                </div>
+                                
+                            </div>
+                    </div>
+                    
+                    <div>
+                        <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
+                    class="img-content" alt="json">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/write.js"></script>
+<%-include('./partials/homeFooter')%>

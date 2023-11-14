@@ -72,7 +72,43 @@
                 
             </div>
 
-            <div class="d-flex justify-content-center mt-4">
+            <%if(locals.data){%>
+                <%data.forEach(data=>{%>
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="d-flex-column">
+                            <div class="blog-header d-flex align-items-center">
+                                <%if(locals.data.image){%>
+                                    <a href="#"><img src="/uploads/<%=data.userId.image%>" class="rounded-pill" width="40px" alt="chanadee"></a>
+                                <%}else{%>
+                                    <a href="#"><img src="/image/defaultUserIcon2.jpg" class="rounded-pill" width="40px" alt="chanadee"></a>
+                                <%}%>
+                                <a href="#" class="author-name text-bold fw-bold"><%=data.userId.firstName%> <%=data.userId.lastName%></a>
+                                <i class="fa-solid fa-circle fa-xs mt-1" style="color: #d4d6d9; font-size: 6px;"></i>
+                                <span> <%=data.date%></span>
+                            </div>
+                            <h1 class="blog-title fs-5 mt-1"><%=data.title%></h1>
+                            <p class="box-content"><%=data.content%></p>
+                                <div class="blog-footer d-flex justify-content-between">
+                                    <div>
+                                        <span class="badge text-bg-light p-2 rounded-pill fw-light">nodejs</span>
+                                    <span class="badge text-bg-light p-2 rounded-pill fw-light">javascript</span>
+                                    </div>
+                                    <i class="fa-regular fa-bookmark"></i>
+                                </div>
+                        </div>
+                        <div>
+                            <img src="/uploads/<%=data.image%>" class="img-content" alt="json"/>
+                        
+                        </div>
+                        
+                    </div>
+                <%})%>
+                
+                <%}else{%>
+
+                <%}%>
+
+            <!-- <div class="d-flex justify-content-center mt-4">
                 <div class="d-flex-column">
                     <div class="blog-header d-flex align-items-center">
                         <a href="#"><img src="/image/photoMe-color.png" class="rounded-pill" width="40px" alt="chanadee"></a>
@@ -80,7 +116,6 @@
                         <i class="fa-solid fa-circle fa-xs mt-1" style="color: #d4d6d9; font-size: 6px;"></i>
                         <span> November 4,2023</span>
                     </div>
-
                     <h1 class="blog-title fs-5 mt-1">JSON is incredibly slow:Here's What's Faster!</h1>
                     <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
                         officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
@@ -130,7 +165,7 @@
                 class="img-content" alt="json">
                 </div>
                 
-            </div>
+            </div> -->
         </div>
         
         
@@ -205,4 +240,4 @@
     </div>
 </nav> -->
 
-    <%-include('./partials/homeFooter')%>
+<%-include('./partials/homeFooter')%>

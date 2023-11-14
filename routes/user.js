@@ -11,23 +11,28 @@ router.get('/', async (req, res, next) => {
     if (req.user) {
         const userLogin = await User.findById(req.user.id);
         if (req.user.image) {
-            res.locals.dataImage = userLogin
+            res.locals.dataImage = userLogin.image;
         }
-        res.locals.dataAuthor = `${req.user.firstName} ${req.user.lastName}`
-        console.log(`Path image ${userLogin.image}`)
+        res.locals.dataUser = {
+            email:req.user.username,
+            author:`${req.user.firstName} ${req.user.lastName}`
+        }
+        // res.locals.dataAuthor = `${req.user.firstName} ${req.user.lastName}`;
+        // console.log(`Path image ${userLogin.image}`);
     }
     next()
 }, async (req, res) => {
     const blog = await Blog.find().populate('userId');
-    console.log('-------------------------------');
-    console.log(blog);
-    console.log('-------------------------------');
+    const user = await User.find()
+    // console.log('-------------------------------');
+    // console.log(blog);
+    // console.log('-------------------------------');
     if (req.isAuthenticated()) {
         console.log('User active');
-        return res.render('home', { data: blog })
+        return res.render('home', { data: blog, user: user})
     }
     console.log('No User')
-    return res.render('index', { data: blog });
+    return res.render('index', { data: blog, user: user });
 });
 
 router.get('/login', (req, res) => {
@@ -94,6 +99,33 @@ router.post('/register', (req, res) => {
     } else {
         res.status(404).redirect('/user/')
     }
+})
+
+//profile
+router.get('/profile',async (req, res, next) => {
+    if (req.user) {
+        const userLogin = await User.findById(req.user.id);
+        if (req.user.image) {
+            res.locals.dataImage = userLogin.image;
+        }
+        res.locals.dataUser = {
+            email:req.user.username,
+            author:`${req.user.firstName} ${req.user.lastName}`,
+            firstName : req.user.firstName,
+            lastName : req.user.lastName
+        }
+        // res.locals.dataAuthor = `${req.user.firstName} ${req.user.lastName}`;
+        // console.log(`Path image ${userLogin.image}`);
+    }
+    next()
+}
+,async(req,res)=>{
+    console.log(req.user)
+    if(req.user){
+        const user = await User.findOne({username:req.user.username}).populate('blogs');
+        return res.render('profile',{data:user});
+    }
+    return res.redirect('/user/')
 })
 
 //logout

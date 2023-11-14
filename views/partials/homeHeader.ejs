@@ -11,7 +11,13 @@
     <nav class="nav-home ">
         <div class="navbar container-fluid d-flex justify-content-between align-items-center">
             <div class="home-nav-left d-flex ">
-                <img src="/image/logo-removebg-preview.png" class="nav-left" alt="logo" width="40px">
+                <%if(locals.dataImage){%>
+                    <img src="/uploads/<%=dataImage%>" class="nav-left" alt="logo" width="40px">
+
+                <%}else{%>
+                    <img src="/image/logo-removebg-preview.png" class="nav-left" alt="logo" width="40px">
+                <%}%>
+                
                 <form action="">
                     <div class="ms-3 form-control rounded-pill bg-body-tertiary">
                         <a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #51555c;"></i></a>
@@ -33,7 +39,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>
-                                <a class="dropdown-item" href="#"><i class="fa-regular fa-user"
+                                <a class="dropdown-item" href="/user/profile"><i class="fa-regular fa-user"
                                         style="color: #51555c;"></i> Profile</a>
                             </li>
                             <li>
@@ -48,9 +54,9 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="/user/logout">
                                     <h6>sign out</h6>
-                                    <p>admin@admin.com</p>
+                                    <p><%=dataUser.email%></p>
                                 </a>
                             </li>
                         </ul>

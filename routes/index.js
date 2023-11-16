@@ -65,6 +65,8 @@ router.get('/write',(req,res)=>{
     res.render('write')
 })
 
+//update blog page
+
 router.post('/write',async(req,res)=>{
     const author = req.user.id;
     const {title, content} = req.body
@@ -90,26 +92,55 @@ router.post('/write',async(req,res)=>{
     
 })
 
-//update blog
+//update profile
 router.post('/profile',upload.single('newImage'),async(req,res)=>{
     const {id, currentImage, firstName, lastName, email} = req.body
-    let image
+    let image = `/image/${currentImage}`
     if(req.file){
-        image = req.file.filename
-    }else{image = currentImage.slice(7)}
+        image = `/uploads/${req.file.filename}`
+    }
     User.findByIdAndUpdate(id,{
         firstName:firstName,
         lastName:lastName,
         username:email,
         image: image
     })
-    .then(data=>console.log(data))
+    .then(()=>res.status(200).redirect('/user/'))
     
     res.sendStatus(202);
 })
 
+//update blog
+router.post('/update',(req,res)=>{
+    const id = req.body.id;
+    if(id){
+        Blog.findById(id)
+        .then(data=>res.status(200).render('update',{data:data}))
+        .catch(err=> res.status(404).json({message:'Error to update blog.'}))
+    }
+    else{res.redirect('/user/')}
+})
 
+//updated blog
+router.post('/update/blog',(req,res)=>{
+    const {title, content, id} = req.body;
+    Blog.findByIdAndUpdate(id,{title:title,content:content})
+    .then(data=>{
+        console.log(`Updated : ${data}`)
+        res.redirect('/user/profile')
+    })
+})
 
 //delete blog
+router.get('/delete/:id',(req,res)=>{
+    const id = req.params.id;
+    console.log(id)
+    Blog.findOneAndDelete({_id:id})
+    .then(data=>{
+        console.log('Delete blog successfully.');
+        res.status(200).redirect('/user/profile');
+    })
+    .catch(err=>console.log(`Error to delete : ${err}`))
+})
 
 module.exports = router;

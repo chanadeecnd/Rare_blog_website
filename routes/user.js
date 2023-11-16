@@ -10,7 +10,7 @@ const { dateFormat } = require('../public/js/date.js')
 router.get('/', async (req, res, next) => {
     if (req.user) {
         const userLogin = await User.findById(req.user.id);
-        if (req.user.image) {
+        if(userLogin.image){
             res.locals.dataImage = userLogin.image;
         }
         res.locals.dataUser = {
@@ -92,7 +92,7 @@ router.post('/register', (req, res) => {
 router.get('/profile',async (req, res, next) => {
     if (req.user) {
         const userLogin = await User.findById(req.user.id);
-        if (req.user.image) {
+        if(userLogin.image){
             res.locals.dataImage = userLogin.image;
         }
         res.locals.dataUser = {
@@ -100,7 +100,6 @@ router.get('/profile',async (req, res, next) => {
             author:`${req.user.firstName} ${req.user.lastName}`,
             firstName : req.user.firstName,
             lastName : req.user.lastName,
-            image: req.user.image ? '/uploads/<%=userLogin.image%>' : '/image/defaultUserIcon2.jpg'
         }
     }
     next()

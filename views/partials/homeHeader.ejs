@@ -11,13 +11,8 @@
     <nav class="nav-home ">
         <div class="navbar container-fluid d-flex justify-content-between align-items-center">
             <div class="home-nav-left d-flex ">
-                <%if(locals.dataImage){%>
-                    <img src="/uploads/<%=dataImage%>" class="nav-left" alt="logo" width="40px">
-
-                <%}else{%>
                     <img src="/image/logo-removebg-preview.png" class="nav-left" alt="logo" width="40px">
-                <%}%>
-                
+
                 <form action="">
                     <div class="ms-3 form-control rounded-pill bg-body-tertiary">
                         <a href="#"><i class="fa-solid fa-magnifying-glass" style="color: #51555c;"></i></a>
@@ -32,10 +27,16 @@
                         <a href="/write"><i class="fa-solid fa-pen-to-square "></i> Write</a>
                     </div>
                     <div>
-                        <a class="dropdown d-flex align-items-center hidden-arrow" type="button
+                        <a class="dropdown d-flex align-items-center hidden-arrow" type="button"
                         id=" navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <%if(locals.dataImage){%>
+                            <img src="<%=dataImage%>" class="rounded-circle"
+                            height="40" width="40" alt="Black and White Portrait of a Man" loading="lazy" />
+                        <%}else{%>
                             <img src="/image/defaultUserIcon2.jpg" class="rounded-circle"
-                                height="40" alt="Black and White Portrait of a Man" loading="lazy" />
+                            height="40" alt="Black and White Portrait of a Man" loading="lazy" />
+                        <%}%>
+                           
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>
@@ -47,7 +48,7 @@
                                         style="color: #51555c;"></i> Library</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#"><i class="fa-regular fa-clipboard"
+                                <a class="dropdown-item" href="/user/profile"><i class="fa-regular fa-clipboard"
                                         style="color: #51555c;"></i> Stories</a>
                             </li>
                             <li>

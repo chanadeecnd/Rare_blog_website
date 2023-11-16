@@ -99,7 +99,8 @@ router.get('/profile',async (req, res, next) => {
             email:req.user.username,
             author:`${req.user.firstName} ${req.user.lastName}`,
             firstName : req.user.firstName,
-            lastName : req.user.lastName
+            lastName : req.user.lastName,
+            image: req.user.image ? '/uploads/<%=userLogin.image%>' : '/image/defaultUserIcon2.jpg'
         }
     }
     next()
@@ -108,6 +109,9 @@ router.get('/profile',async (req, res, next) => {
     console.log(req.user)
     if(req.user){
         const user = await User.findOne({username:req.user.username}).populate('blogs');
+        console.log('-----------------Profile.ejs-------------------');
+        console.log(user);
+        console.log('-----------------------------------------------')
         return res.render('profile',{data:user});
     }
     return res.redirect('/user/')

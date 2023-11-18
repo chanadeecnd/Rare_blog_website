@@ -14,7 +14,7 @@
                         <input type="file" name="newImage" id="profile-image" onchange="displayImageProfile()">
                         <label for="profile-image">
                             <%if(data.image){%>
-                                <img src="<%=data.image%>" class="rounded-pill" alt="" id="avatar">
+                                <img src="/uploads/<%=data.image%>" class="rounded-pill" alt="" id="avatar">
                             <%}else{%>
                                 <img src="/image/defaultUserIcon2.jpg" class="rounded-pill" alt="" id="avatar">
                             <%}%>

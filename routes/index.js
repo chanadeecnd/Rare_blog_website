@@ -95,10 +95,10 @@ router.post('/write',async(req,res)=>{
 //update profile
 router.post('/profile',upload.single('newImage'),async(req,res)=>{
     const {id, currentImage, firstName, lastName, email} = req.body
-    let image = `/image/${currentImage}`
+    let image;
     if(req.file){
-        image = `/uploads/${req.file.filename}`
-    }
+        image = req.file.filename;
+    }else{image = currentImage}
     User.findByIdAndUpdate(id,{
         firstName:firstName,
         lastName:lastName,

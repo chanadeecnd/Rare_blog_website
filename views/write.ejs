@@ -26,12 +26,18 @@
                 </div>
                 <a class="dropdown d-flex align-items-center hidden-arrow" type="button
                         id=" navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
+                    <%if(locals.dataImage){%>
+                        <img src="/uploads/<%=dataImage%>" class="rounded-circle" height="40"
                         alt="Black and White Portrait of a Man" loading="lazy" />
+                    <%}else{%>
+                        <img src="image/defaultUserIcon2.jpg" class="rounded-circle" height="40"
+                        alt="Black and White Portrait of a Man" loading="lazy" />
+                    <%}%>
+                    
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                     <li>
-                        <a class="dropdown-item" href="/profile"><i class="fa-regular fa-user" style="color: #51555c;"></i>
+                        <a class="dropdown-item" href="/user/profile"><i class="fa-regular fa-user" style="color: #51555c;"></i>
                             Profile</a>
                     </li>
                     <li>
@@ -58,11 +64,11 @@
         <form action="/write" method="post" id="form-blog">
             <div class="write-title" style="position: relative;">
                 <textarea class="write-title" name="title" id="title" cols="30" rows="1" placeholder="Title"></textarea>
-                <img id="uploadedImage" style="display: none;">
+                <!-- <img id="uploadedImage" style="display: none;">
                 <div class="text-center" style="position: absolute; left: -40px; top: 8px;">
                     <input type="file" id="fileInput" name="image" onchange="displayImage()">
                     <label for="fileInput" class=""><i class="input-image fa-regular fa-images fa-xl"></i></label>
-                </div>   
+                </div>    -->
             </div>
             <div class="write-title box-title">
                 <textarea class="write-title mt-3 " name="content" id="content" cols="30" rows="1" placeholder="tell your story..."></textarea>

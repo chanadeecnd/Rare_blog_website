@@ -12,7 +12,8 @@ const Blog = require('./model/blog');
 const userRouter = require('./routes/user');
 const indexRouter = require('./routes/index');
 const { dateFormat } = require('./public/js/date');
-
+const clientID = '5280873552-dpg3e6p1eut1objqueknohmo54d9osh2.apps.googleusercontent.com';
+const clientSecret = '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';
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -42,8 +43,8 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
+    clientID: clientID,
+    clientSecret: clientSecret,
     callbackURL: "https://rareblogwebsite-production.up.railway.app/auth/google/home",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },

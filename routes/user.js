@@ -4,27 +4,16 @@ const Blog = require('../model/blog');
 const passport = require('passport');
 const router = express.Router();
 const { dateFormat } = require('../public/js/date.js')
+const { readUser } = require('../middleware/user.js');
 
 //CRU*
 
-router.get('/', async (req, res, next) => {
-    if (req.user) {
-        const userLogin = await User.findById(req.user.id);
-        if(userLogin.image){
-            res.locals.dataImage = userLogin.image;
-        }
-        res.locals.dataUser = {
-            email:req.user.username,
-            author:`${req.user.firstName} ${req.user.lastName}`
-        }
-    }
-    next()
-}, async (req, res) => {
+router.get('/', readUser, async (req, res) => {
     const blog = await Blog.find().populate('userId');
     const user = await User.find()
     if (req.isAuthenticated()) {
         console.log('User active');
-        return res.render('home', { data: blog, user: user})
+        return res.render('home', { data: blog, user: user })
     }
     console.log('No User')
     return res.render('index', { data: blog, user: user });
@@ -88,30 +77,29 @@ router.post('/register', (req, res) => {
     }
 })
 
+//seach
+router.post('/search',readUser ,async (req, res) => {
+    const text = req.body.text;
+    const foundBlogs = await Blog.find({
+        $or: [
+            { title: { $regex: text.replace(/\s+/g, '\\s+'), $options: 'i' } },
+            { content: { $regex: text.replace(/\s+/g, '\\s+'), $options: 'i' } }
+        ]
+    }).populate('userId');
+
+    res.render('search',{data:foundBlogs,text:text});
+})
+
+
 //profile
-router.get('/profile',async (req, res, next) => {
-    if (req.user) {
-        const userLogin = await User.findById(req.user.id);
-        if(userLogin.image){
-            res.locals.dataImage = userLogin.image;
-        }
-        res.locals.dataUser = {
-            email:req.user.username,
-            author:`${req.user.firstName} ${req.user.lastName}`,
-            firstName : req.user.firstName,
-            lastName : req.user.lastName,
-        }
-    }
-    next()
-}
-,async(req,res)=>{
+router.get('/profile', readUser, async (req, res) => {
     console.log(req.user)
-    if(req.user){
-        const user = await User.findOne({username:req.user.username}).populate('blogs');
-        console.log('-----------------Profile.ejs-------------------');
-        console.log(user);
-        console.log('-----------------------------------------------')
-        return res.render('profile',{data:user});
+    if (req.user) {
+        const user = await User.findById(req.user._id).populate('blogs');
+        // console.log('-----------------Profile.ejs-------------------');
+        // console.log(user);
+        // console.log('-----------------------------------------------')
+        return res.render('profile', { data: user });
     }
     return res.redirect('/user/')
 })

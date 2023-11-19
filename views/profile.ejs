@@ -13,7 +13,13 @@
                         <%}%>
                         <input type="file" name="newImage" id="profile-image" onchange="displayImageProfile()">
                         <label for="profile-image">
-                            <%if(data.image){%>
+                            <%if(data.googleId){%>
+                                <%if((data.image).length > 50){%>
+                                    <img src="<%=data.image%>" class="rounded-pill" alt="" id="avatar">
+                                <%}else{%>
+                                    <img src="/uploads/<%=data.image%>" class="rounded-pill" alt="" id="avatar">
+                                <%}%>
+                            <%}else if(data.image){%>
                                 <img src="/uploads/<%=data.image%>" class="rounded-pill" alt="" id="avatar">
                             <%}else{%>
                                 <img src="/image/defaultUserIcon2.jpg" class="rounded-pill" alt="" id="avatar">
@@ -30,7 +36,12 @@
                     </div>
                     <div class="mt-3">
                         <label class="form-label">Email</label>
-                        <input type="text" class="form-control" name="email" id="" placeholder="Email" value="<%=data.username%>">
+                        <%if(data.googleId){%>
+                            <input type="text" class="form-control" name="email" id="" placeholder="Email" value="<%=data.username%>" disabled>
+                        <%}else{%>
+                            <input type="text" class="form-control" name="email" id="" placeholder="Email" value="<%=data.username%>">
+                        <%}%>
+                        
                     </div>
                     <div class="button mt-3 w-100">
                         <button type="submit" class="btn-submit w-40">Update</button>

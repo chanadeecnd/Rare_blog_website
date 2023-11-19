@@ -12,8 +12,7 @@ const librarySchema = new mongoose.Schema({
         ref:'Blog'
     }],
     date:{
-        type:Date,
-        default:Date.now
+        type:String
     }
 });
 

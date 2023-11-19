@@ -17,7 +17,7 @@
                 <form action="/user/search" method="post">
                     <div class="ms-3 form-control rounded-pill bg-body-tertiary">
                         <button href="#" type="submit" style="border: none; background-color: transparent;"><i class="fa-solid fa-magnifying-glass" style="color: #51555c;"></i></button>
-                        <input type="text" class="search-input bg-body-tertiary" placeholder="Search" name="text">
+                        <input type="text" class="search-input bg-body-tertiary" placeholder="Search" name="text" value="<%=text%>">
                     </div>
                 </form>
             </div>
@@ -72,4 +72,57 @@
             </div>
         </div>
     </nav>
-    
+<div class="container d-flex-column align-items-center">
+    <div class="container p-5 d-flex-column">
+        <div class="mb-5" id="result">
+            <h1 style="color: rgb(176, 175, 175);" class="fw-bold">Results for <span style="color: #333;"><%=text%></span></h1>
+        </div>
+        <div class="container blog d-flex-column">
+            <%if(locals.data){%>
+                <%data.forEach(data=>{%>
+                    <div class="d-flex justify-content-center mt-4">
+                        <div class="d-flex-column">
+                            <div class="blog-header d-flex align-items-center">
+                                <%if(data.userId.image){%>
+                                    <%if((data.userId.image).length > 50){%>
+                                        <a href="#" style="cursor: default;"><img src="<%=data.userId.image%>" class="rounded-pill" width="40px" height="40px" alt="chanadee"></a>
+                                    <%}else{%>
+                                        <a href="#" style="cursor: default;"><img src="/uploads/<%=data.userId.image%>" class="rounded-pill" width="40px" height="40px" alt="chanadee"></a>
+                                    <%}%>
+                                    
+                                <%}else{%>
+                                    <a href="#" style="cursor: default;"><img src="/image/defaultUserIcon2.jpg" class="rounded-pill" width="40px" alt="chanadee"></a>
+                                <%}%>
+                                <a href="#" class="author-name text-bold fw-bold" style="cursor: default;"><%=data.userId.firstName%> <%=data.userId.lastName%></a>
+                                <i class="fa-solid fa-circle fa-xs mt-1" style="color: #d4d6d9; font-size: 6px;"></i>
+                                <span> <%=data.date%></span>
+                            </div>
+                            <a href="/blog?read=<%=data._id%>">
+                            <h1 class="blog-title fs-5 mt-1"><%=data.title%></h1>
+                            <p class="box-content"><%=data.content%></p>
+                            </a>
+                                <div class="blog-footer d-flex justify-content-between">
+                                    <div>
+                                    </div>
+                                    <%if(locals.dataUser.email == data.userId.username){%>
+                                    <i class="fa-regular fa-bookmark" hidden></i>
+                                    <%}else{%>
+                                        <!-- <a id="add-library" style="border: none; background-color: transparent; cursor: pointer;"><i class="fa-regular fa-bookmark"></i></a> -->
+                                        
+                                    <%}%>
+                                </div>
+                        </div>
+                        <div>
+                            <!-- <img src="/uploads/<%=data.image%>" class="img-content" alt="json"/> -->
+                        </div>
+                    </div>
+                <%})%>
+                <%}else{%>
+                <%}%>
+        </div>
+        
+        
+    </div>
+</div>
+
+<%-include('./partials/homeFooter')%>

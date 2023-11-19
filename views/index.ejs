@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body d-flex flex-column align-items-center">
                     <h1 class="mb-3 f-header">Join Rare.</h1>
-                    <a href="#" class="btn btn-outline-dark d-flex justify-content-between align-items-center w-50 mb-2"
+                    <a href="/auth/google" class="btn btn-outline-dark d-flex justify-content-between align-items-center w-50 mb-2"
                         style="height: 40px; border-radius: 30px;">
                         <img width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png"
                             alt="google-logo" />
@@ -28,9 +28,7 @@
             </div>
         </div>
     </div>
-
     <!-- signin modal  -->
-
     <div class="modal fade" id="signin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -40,7 +38,7 @@
                 </div>
                 <div class="modal-body d-flex flex-column align-items-center">
                     <h1 class="mb-3 f-header">Welcome back.</h1>
-                    <a href="#" class="btn btn-outline-dark d-flex justify-content-between align-items-center w-50 mb-2"
+                    <a href="/auth/google" class="btn btn-outline-dark d-flex justify-content-between align-items-center w-50 mb-2"
                         style="height: 40px; border-radius: 30px;">
                         <img width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png"
                             alt="google-logo" />
@@ -59,7 +57,6 @@
             </div>
         </div>
     </div>
-
     <!-- sign up with email -->
     <div class="modal fade" id="signup-w-email" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -99,7 +96,6 @@
         </div>
     </div>
     <!--Sign in with email  -->
-
     <div class="modal fade" id="signin-w-email" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -128,8 +124,6 @@
             </div>
         </div>
     </div>
-
-
     </div>
     <nav>
         <div class="navbar">
@@ -218,20 +212,25 @@
                             <div class="blog">
                                 <div class="blog-author">
                                     <%if(data.userId.image){%>
-                                        <a href="#"><img src="/uploads/<%=data.userId.image%>" alt="chanadee" width="40px" height="40px"></a>
+                                        <%if((data.userId.image).length > 50){%>
+                                            <a href="#" style="cursor: default;"><img src="<%=data.userId.image%>" alt="chanadee" width="40px" height="35px" class="rounded-pill"></a>
                                         <%}else{%>
-                                            <a href="#"><img src="/image/defaultUserIcon2.jpg" alt="chanadee"></a>
-                                            <%}%>
-                                    <a href="#" class="author-name"><%=data.userId.firstName%> <%=data.userId.lastName%></a>
+                                            <a href="#" style="cursor: default;"><img src="/uploads/<%=data.userId.image%>" alt="chanadee" width="40px" height="35px" class="rounded-pill"></a>
+                                        <%}%>
+                                        
+                                    <%}else{%>
+                                        <a href="#" style="cursor: default;"><img src="/image/defaultUserIcon2.jpg" alt="chanadee"></a>
+                                    <%}%>
+                                    <a href="#" class="author-name" style="cursor: default;"><%=data.userId.firstName%> <%=data.userId.lastName%></a>
                                     <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
                                     <span> <%=data.date%></span>
                                 </div>
-                                <a href="#" style="color: #333;">
+                                <a href="#" style="color: #333;" type="button" class="" data-bs-toggle="modal" data-bs-target="#signin">
                                     <h1 class="blog-title"><%=data.title%></h1>
                                     <p class="box-content"><%=data.content%></p>
                                 </a>
                                 <div class="box-footer">
-                                    <a href="#">Catgory</a>
+                                    <p></p>
                                     <i class="fa-regular fa-bookmark"></i>
                                 </div>
                             </div>
@@ -240,325 +239,8 @@
                         </div>
                     <%})%>
                     <%}else{%>
-
                         <%}%>
-                <!-- <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div>
-
-                <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div>
-
-                <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div>
-
-                <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div>
-
-                <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div>
-
-                <div class="blog-left">
-                    <div class="blog">
-                        <div class="blog-author">
-                            <a href="#"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="author-name">Chanadee Hlaoken</a>
-                            <i class="fa-solid fa-circle fa-xs" style="color: #d4d6d9; font-size: 4px;"></i>
-                            <span> November 4,2023</span>
-                        </div>
-                        <h1 class="blog-title">JSON is incredibly slow:Here's What's Faster!</h1>
-                        <p class="box-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos suscipit
-                            officia facere sint quaerat fugiat adipisci vero deleniti temporibus, iusto quas aspernatur,
-                            laudantium corporis? Eligendi sint voluptate cupiditate! Iure at soluta sunt error omnis
-                            saepe
-                            placeat dolore quod, reiciendis ipsam optio illo aspernatur deserunt repellendus consectetur
-                            cumque! Praesentium perferendis aut voluptas, eum error quam rerum quod, deserunt modi
-                            possimus
-                            excepturi impedit? Excepturi harum suscipit quo est nesciunt explicabo voluptate! Officiis,
-                            dolorem dolores temporibus voluptatibus optio culpa iure totam ea dignissimos corrupti sunt?
-                            Magnam doloremque eaque amet architecto maxime voluptatibus, nostrum molestiae praesentium.
-                            Tenetur illum cupiditate quisquam neque nostrum assumenda eius, quas at hic necessitatibus
-                            accusamus laborum. Quisquam porro libero quo nulla, deserunt facere fugit. Magni laudantium
-                            cum
-                            eum maiores itaque quis corrupti in quae placeat pariatur, ipsum iste incidunt aspernatur
-                            possimus, saepe qui cupiditate nam libero mollitia omnis vitae ipsam a corporis minus!
-                            Incidunt
-                            illo dolore consectetur, ipsa ab, officiis vel sint unde cupiditate natus iusto. Ea adipisci
-                            necessitatibus quia alias ipsum saepe veniam, recusandae quod perspiciatis vero beatae
-                            maiores
-                            praesentium, corrupti culpa id ut doloremque. Voluptates inventore assumenda repellat modi
-                            deleniti, ea veritatis culpa provident odio eveniet reiciendis et, consectetur error unde
-                            quaerat iusto eaque. Inventore corrupti eum modi eligendi magni non temporibus quas dolore
-                            placeat porro repudiandae recusandae sapiente, obcaecati illum id, molestiae quia fugiat!
-                            Illo
-                            quod, hic atque eius esse voluptatum ipsam labore quia tempore voluptatem, consectetur
-                            voluptatibus maxime magni nobis. Consequatur est eligendi illo obcaecati culpa dolorum
-                            repellat
-                            debitis facere, pariatur neque eum nam molestias cum quasi amet animi alias veniam earum
-                            ratione
-                            sapiente unde officiis numquam maxime. Labore enim facilis, iusto, dolorem molestiae
-                            consectetur
-                            dolorum quibusdam ratione voluptatum aliquid vitae cum earum ut optio, consequuntur cumque
-                            excepturi? Ducimus quos placeat hic et enim! Praesentium, alias. Odio optio mollitia nisi
-                            fugiat
-                            architecto quasi et iste non!</p>
-                        <div class="box-footer">
-                            <a href="#">Catgory</a>
-                            <i class="fa-regular fa-bookmark"></i>
-                        </div>
-                    </div>
-                    <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*I2ObYjzqveyXzEe9QixMPw.png"
-                        class="img-content" alt="json">
-                </div> -->
+                
             </div>
             <!-- right -->
             <!-- Card author -->
@@ -570,12 +252,19 @@
                         <div class="card-total">
                             <div class="card-header">
                                 <%if(data.image){%>
-                                    <a href="#" class="img-author"><img src="/uploads/<%=data.image%>" alt="chanadee"></a>
-                                    <a href="#" class="name-author"><%=data.firstName%> <%=data.lastName%></a> <img width="18" height="18"
-                                    src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
+                                    <%if((data.image).length > 50){%>
+                                        <a href="#" class="img-author" style="cursor: default;"><img src="<%=data.image%>" alt="chanadee"></a>
+                                        <a href="#" class="name-author" style="cursor: default;"><%=data.firstName%> <%=data.lastName%></a> <img width="18" height="18"
+                                        src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
+                                    <%}else{%>
+                                        <a href="#" class="img-author" style="cursor: default;"><img src="/uploads/<%=data.image%>" alt="chanadee"></a>
+                                        <a href="#" class="name-author" style="cursor: default;"><%=data.firstName%> <%=data.lastName%></a> <img width="18" height="18"
+                                        src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
+                                    <%}%>
+                                    
                                 <%}else{%>
-                                    <a href="#" class="img-author"><img src="/image/defaultUserIcon2.jpg" alt="chanadee"></a>
-                                    <a href="#" class="name-author"><%=data.firstName%> <%=data.lastName%></a> <img width="18" height="18"
+                                    <a href="#" class="img-author" style="cursor: default;"><img src="/image/defaultUserIcon2.jpg" alt="chanadee"></a>
+                                    <a href="#" class="name-author" style="cursor: default;"><%=data.firstName%> <%=data.lastName%></a> <img width="18" height="18"
                                         src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
                                 <%}%>
                                 
@@ -586,114 +275,13 @@
                                     autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
                             </div>
                             <div class="card-footer">
-                                <a href="/user/">Follow</a>
+                                <a href="/user/" type="button" class="" data-bs-toggle="modal" data-bs-target="#signin">Follow</a>
                             </div>
                         </div>
                     <%})%>
                     
-
-                    <!-- <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div>
-
-                    <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div>
-
-                    <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div>
-
-                    <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div>
-
-                    <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div>
-
-                    <div class="card-total">
-                        <div class="card-header">
-                            <a href="#" class="img-author"><img src="/image/photoMe-color.png" alt="chanadee"></a>
-                            <a href="#" class="name-author">Chanadee Hlaoken</a> <img width="18" height="18"
-                                src="https://img.icons8.com/nolan/64/approval.png" alt="approval" />
-                            <p>99.99K followers</p>
-                        </div>
-                        <div class="card-content">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, laudantium quasi illum
-                                autem tenetur corporis rem, magni eaque facilis eum ab! Modi a obcaecati nobis!</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#">Follow</a>
-                        </div>
-                    </div> -->
-
-
                 </div>
-
             </div>
-
         </div>
     </div>
-
     <%-include('./partials/footer')%>

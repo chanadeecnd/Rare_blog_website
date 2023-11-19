@@ -289,6 +289,10 @@ hr{
 .link-profile:hover{
     color: rgb(194, 0, 0);
 }
+
+#result{
+    font-family: var(--font-content);
+}
 /* .profile-image>label div:hover,.profile-image>label div:focus{
     z-index: 10;
 } */

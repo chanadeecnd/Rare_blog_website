@@ -22,12 +22,12 @@
                     <a id="submit" href="#">Update</a>
                 </div>
                 <div id="cancel-btn" class="d-flex align-items-center justify-content-center mx-3">
-                    <a href="/" onclick="return confirm('Are you sure to leave this page ?')">Cancel</a>
+                    <a href="/user/profile" onclick="return confirm('Are you sure to leave this page ?')">Cancel</a>
                 </div>
-                <a class="dropdown d-flex align-items-center hidden-arrow" type="button
+                <!-- <a class="dropdown d-flex align-items-center hidden-arrow" type="button
                         id=" navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <%if(locals.dataImage){%>
-                        <img src="/uploads/<%=dataImage%>" class="rounded-circle" height="40"
+                    <%if(locals.data){%>
+                        <img src="/uploads/<%=data.userId.image%>" class="rounded-circle" height="40"
                         alt="Black and White Portrait of a Man" loading="lazy" />
                     <%}else{%>
                         <img src="/image/defaultUserIcon2.jpg" class="rounded-circle" height="40"
@@ -35,8 +35,8 @@
                     <%}%>
                     
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                    <li>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar"> -->
+                    <!-- <li>
                         <a class="dropdown-item" href="/profile"><i class="fa-regular fa-user" style="color: #51555c;"></i>
                             Profile</a>
                     </li>
@@ -53,10 +53,10 @@
                     <li>
                         <a class="dropdown-item" href="#">
                             <h6>sign out</h6>
-                            <p>admin@admin.com</p>
+                            <p><%=data.userId.username%></p>
                         </a>
-                    </li>
-                </ul>
+                    </li> -->
+                <!-- </ul> -->
             </div>
         </div>
     </nav>

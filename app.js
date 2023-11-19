@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+const morgan = require('morgan');
 const User = require('./model/user');
 const Blog = require('./model/blog');
 const userRouter = require('./routes/user');
@@ -43,7 +44,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "https://rareblogwebsite-production.up.railway.app//auth/google/home",
+    callbackURL: "https://rareblogwebsite-production.up.railway.app/auth/google/home",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
     async function (accessToken, refreshToken, profile, cb) {
@@ -66,6 +67,7 @@ passport.use(new GoogleStrategy({
         }else{return cb(null,user)}
     }
 ));
+app.use(morgan('combined'))
 app.get('/auth/google',
     passport.authenticate('google', { scope: ['profile','email'] }));
 

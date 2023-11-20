@@ -2,6 +2,7 @@
 [Go to website](https://rareblogwebsite-production.up.railway.app/)
 **A website application developed with Node.js with the following features.**
  - Login & Logout
+ - Authentication with hashing
  - Google Login
  - CRU* operation with user
  - CRUD operation with blog
@@ -9,7 +10,7 @@
 ## Tools and Technology
 **backend** : Node JS + Express  
 **fontend** : HTML + CSS + Bootstrap5 + EJS  
-**database** : mongoDB Atlas
+**database** : mongoDB
 ## Design Database
 
 ```mermaid

@@ -1,6 +1,6 @@
 function dateFormat(){
     const fullMonths = [
-        'January', 'February', 'March', 'April', 'May', 'June',
+        '','January', 'February', 'March', 'April', 'May', 'June',
         'July', 'August', 'September', 'October', 'November', 'December'
       ];
     const d = new Date()

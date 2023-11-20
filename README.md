@@ -7,8 +7,9 @@
  - CRUD operation with blog
 
 ## Tools and Technology
-**backend** : Node JS + Express + Mongodb 
-**fontend** : HTML + CSS + Bootstrap5 + EJS
+**backend** : Node JS + Express  
+**fontend** : HTML + CSS + Bootstrap5 + EJS  
+**database** : mongoDB Atlas
 ## Design Database
 
 ```mermaid

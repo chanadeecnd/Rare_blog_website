@@ -57,6 +57,7 @@
                 <h2 class="your-stories">Your stories</h2>
                 <hr>
                 <%if(locals.data.blogs){%>
+                        <%if((locals.data.blogs).length >= 1){%>
                             <%(data.blogs).forEach(data=>{%>
                             <div class="d-flex justify-content-center mt-4">
                                 <div class="d-flex-column">
@@ -89,7 +90,13 @@
 
                             <%})%>
                             <%}else{%>
-                                <p>You don't have a story yet.</p>
+                                <div class="container-fluid d-flex flex-column align-items-center">
+                                    <p class="text-secondary fs-3 my-3">You don't have a story yet.</p>
+                                    <a href="/write" class="btn btn-success"><i class="fa-solid fa-plus" style="color: #f7f7f7;"></i> Create story</a>
+                                </div>
+                               
+
+                            <%}%>
                             <%}%>
                        
                 

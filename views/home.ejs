@@ -16,7 +16,7 @@
                         <div class="d-flex-column">
                             <div class="blog-header d-flex align-items-center">
                                 <%if(data.userId.image){%>
-                                    <%if((data.userId.image).length > 50){%>
+                                    <%if((data.userId.image).includes('https')){%>
                                         <a href="#" style="cursor: default;"><img src="<%=data.userId.image%>" class="rounded-pill" width="40px" height="40px" alt="chanadee"></a>
                                     <%}else{%>
                                         <a href="#" style="cursor: default;"><img src="/uploads/<%=data.userId.image%>" class="rounded-pill" width="40px" height="40px" alt="chanadee"></a>

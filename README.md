@@ -1,3 +1,16 @@
+# [Rare website](https://rareblogwebsite-production.up.railway.app/)
+[Go to website](https://rareblogwebsite-production.up.railway.app/)
+**A website application developed with Node.js with the following features.**
+ - Login & Logout
+ - Google Login
+ - CRU* operation with user
+ - CRUD operation with blog
+
+## Tools and Technology
+**backend** : Node JS + Express + Mongodb 
+**fontend** : HTML + CSS + Bootstrap5 + EJS
+## Design Database
+
 ```mermaid
 erDiagram
   USER ||--o{ BLOG : "One-to-Many"

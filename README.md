@@ -1,5 +1,3 @@
-# [Rare website](https://rareblogwebsite-production.up.railway.app/)
-[Go to website](https://rareblogwebsite-production.up.railway.app/)
 **A website application developed with Node.js with the following features.**
  - Login & Logout
  - Authentication with hashing
